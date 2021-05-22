@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <iterator>
 #include <vector>
 #include <iostream>
 
@@ -23,9 +24,7 @@ int main() {
     }
     auto permutations = GetPermutations(v);
     for(const auto& permutation : permutations) {
-        for(const auto& num : permutation) {
-            cout << num << ' ';
-        }
+        copy(begin(permutation), end(permutation), ostream_iterator<int>(cout, " "));
         cout << endl;
     }
 }
